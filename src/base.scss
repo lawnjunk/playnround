@@ -1,0 +1,138 @@
+$brand-primary: #fafaf7;
+$brand-secondary: #afafaf;
+
+$brand-active: #47a;
+$brand-focus: #774;
+$brand-error: #f44;
+$brand-success: #7f7;
+
+$brand-black: #000;
+$brand-dark: #444;
+$brand-med: #777;
+$brand-light: #fffff7;
+
+$pad: 0.5em;
+
+@mixin bubble {
+  padding: $pad;
+  border-radius: 0.25em;
+  font-family: sans-serif;
+}
+
+* {
+  position: static;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: normal;
+  color: $brand-black;
+  &:focus {
+    outline: 0;
+  }
+}
+
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $brand-secondary;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  padding: $pad * 2;
+  background-color: $brand-primary;
+  height: fit-content;
+}
+
+body * {
+  margin-bottom: $pad;
+}
+
+@for $i from 6 through 1 {
+  h#{$i} {
+    color: $brand-dark;
+    font-size: 9/($i + 2)  * 1em;;
+    margin-bottom: $i/10 * 1em;
+  }
+}
+
+p {
+  color: $brand-med;
+}
+
+a {
+  color: $brand-active;
+  font-weight: bolder;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+pre {
+  padding: $pad;
+  padding-left: $pad * 2;
+  background-color: $brand-med;
+  color: $brand-light;
+}
+
+ul {
+  margin-left: $pad;
+  padding-left: $pad;
+}
+
+button {
+  @include bubble;
+  width: fit-content;
+  border: 0px;
+  background-color: $brand-dark;
+  color: $brand-light;
+
+  &:hover {
+    background-color: $brand-med;
+  }
+
+  &:active {
+    color: $brand-light;
+    background-color: $brand-black;
+  }
+
+}
+
+form {
+  font-family: sans-serif;
+
+  input {
+    @include bubble;
+    border: 2px solid $brand-dark;
+  }
+
+  input:focus {
+    border: 2px solid $brand-focus;
+    border-radius: 0.25em;
+  }
+}
+
+.special {
+  color: $brand-dark;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.bubble {
+  @include bubble;
+  background-color: $brand-dark;
+}
+
+.error {
+  @include bubble;
+  color: $brand-light;
+  background-color: $brand-error;
+}
+
+.success {
+  @include bubble;
+  color: $brand-dark;
+  background-color: $brand-success;
+}
