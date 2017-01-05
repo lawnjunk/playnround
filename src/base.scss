@@ -13,8 +13,18 @@ $brand-light: #fffff7;
 
 $pad: 0.5em;
 
-@mixin bubble {
+@mixin magic-pad {
+  box-sizing: border-box;
   padding: $pad;
+}
+
+@mixin horizontal-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin bubble {
+  @include magic-pad;
   border-radius: 0.25em;
   font-family: sans-serif;
 }
@@ -46,11 +56,11 @@ html, body {
 }
 
 body {
-  margin-left: auto;
-  margin-right: auto;
+  @include horizontal-center;
+  width: 960px;
+  height: auto;
   padding: $pad * 2;
   background-color: $brand-primary;
-  height: fit-content;
 }
 
 body * {
@@ -78,7 +88,7 @@ a {
 
 
 pre {
-  padding: $pad;
+  @include magic-pad;
   padding-left: $pad * 2;
   @include code;
 }
